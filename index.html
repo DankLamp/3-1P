@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    
+    <!-- This is a humble introduction -->
+    <h1> Hello, i'm Dan Lamperd, 2nd year student at Deakin Uni
+        <br>
+        This is my portfolio website
+        <br>
+        I am capable of great things
+    </h1>
+    
+    <h2> Below is a table depicting the previously stated
+        <br>
+        situation regarding SIT120
+    </h2>
+   
+    <!-- This is the table depicting my history of SIT120 -->
+    <table>
+        <tr>
+          <th> Usual Questions </th>
+          <th> Answers </th>
+        </tr>
+        <tr>
+          <td>How old is Dan?</td>
+          <td>I am 21</td>
+        </tr>
+        <tr>
+          <td>What field did Dan major in at Deakin?</td>
+          <td>I majored in Cyber Security </td>
+        </tr>
+        <td>Why are all of Dans submissions Sonic themed? </td>
+        <td>I find it is a good way to make light of an otherwise stressful task</td>
+      </tr>
+      <tr>
+        <td>How much experience do you have in an out of the IT industry?</td>
+        <td>I have had very little expereince in the industry itself, only really studying it, however I do sell donuts from time to time</td>
+      </tr>
+      <td>Are you confident in your web development skills?</td>
+      <td>If there is passion, the confidence does not matter, but no, I am not confident</td>
+    </tr>
+    <tr>
+      <td> Would you like to better demonstrate your skills below? </td>
+      <td> Yes </td>
+    </tr>
+    </table>
+
+    <h2> There will now be some Vue 3 concepts demonstrated below 
+        <br>
+        I hope this favours me in getting a job with your company
+    </h2>
+
+    <!-- Vue operations take place inside here -->
+    <div id="app"> 
+        <button @click="activeComp = 'sonic'">Click to see Sonic</button>
+        <button @click="activeComp = 'knuckles'">Click to see Knuckles</button>
+        
+        <div>
+            <!-- Shows the active component in the div -->
+            <component :is="activeComp"></component>
+        </div>
+
+        <h2> Please, leave a score, it can be any integer you would like: </h2>
+
+        <!-- Input box to update the score -->
+        <input type="number" v-model="newScore" placeholder="Enter Dan's score">
+        <br>
+        <!-- Box to confirm update -->
+        <button @click="updateScore">Update my reaction</button>
+        
+        <!-- If the score is over 5 above, then sonic feels okay -->
+        <div>
+            <p v-if="score > 5">
+              <img src="yessonic.jpg" alt="Sonic">
+            </p>
+            <p v-else>
+              <img src="nosonic.jpg" alt="Sonic">
+            </p>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <script>
+        // Sonics component
+        const SonicComponent = {
+            template: `
+                <div>
+                    <h1>SONIC GREETS YOU</h1>
+                    <img src="sonic.jpg" alt="Sonic">
+                </div>
+            `
+        };
+
+        // Knuckles Component
+        const KnucklesComponent = {
+            template: `
+                <div>
+                    <h1>KNUCKLES GREETS YOU</h1>
+                    <img src="knuckles.jpg" alt="Knuckles">
+                </div>
+            `
+        };
+
+        const app = Vue.createApp({
+            data() {
+                return {
+                    activeComp: '',
+                    newScore: 0,
+                    score: 0,
+                };
+            },
+            methods: {
+                updateScore() {
+                    this.score = this.newScore;
+                }
+            }
+        });
+
+        app.component('sonic', SonicComponent);
+        app.component('knuckles', KnucklesComponent);
+
+        app.mount('#app');
+    </script>
+</body>
+</html>

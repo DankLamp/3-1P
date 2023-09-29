@@ -1,0 +1,70 @@
+
+body {
+    background-color: rgb(180, 235, 218);
+    text-align: center;
+}
+
+h1 {
+    font-family: papyrus; 
+    background-color: rgb(134, 186, 202);
+    border-radius: 20%;
+    padding-bottom: 3%;
+    width:90%;
+    margin: 0 auto;
+}
+
+#app {
+    padding: 0 10px 10px 10px;
+    margin: 0
+  }
+
+table {
+    width: 75%;
+    margin: 0 auto;
+  }
+  
+  td, th {
+    border: 3px solid #000000;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ac8eb8;
+    color :azure
+  }
+
+  tr:nth-child(odd) {
+    background-color: white;
+  }
+
+  button{
+    font-family: 'Courier New', Courier, monospace; 
+    background-color: rgb(134, 186, 202);
+    border-radius: 20%;
+    padding: 2%;
+    width:30%;
+    margin: 0 auto;
+    font-size:200%;
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+
+    table{
+        width: 100%
+    }
+
+    th{
+        font-size: 0.9rem;
+    }
+
+    td{
+        font-size: 0.9rem;
+    }
+  }
